@@ -7,5 +7,11 @@ pipeline{
                 git credentialsId: 'github', url:'https://github.com/CharanKoyalkar484/Myweb.git'
             }
         }
+        stage("Maven Build"){
+            steps{
+                sh "mvn clean package"
+                sh "mv target/*.war target/myweb.war"
+            }
+        }
        }
       }
