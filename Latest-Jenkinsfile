@@ -16,10 +16,7 @@ pipeline{
         stage("deploy-dev"){
             steps{
                  sshagent(['ubuntu-tomcat-dev']) {
-                 
-   
-                 
-                  sh """
+                 sh """
                     scp -o StrictHostKeyChecking=no target/myweb.war  ubuntu@172.31.40.98:/opt/tomcat8/webapps/
                     
                     ssh ubuntu@172.31.40.98 /opt/tomcat8/bin/shutdown.sh
@@ -27,6 +24,9 @@ pipeline{
                     ssh ubuntu@172.31.40.98 /opt/tomcat8/bin/startup.sh
                 
                 """
+   
+                 
+                  
    
                }
             
