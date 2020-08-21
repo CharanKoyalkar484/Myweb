@@ -4,6 +4,8 @@ pipeline{
     stages{
         stage("Git Checkout"){
             steps{
-                git 'https://github.com/CharanKoyalkar484/Myweb.git'
+                git credentialsId: 'github', url:'https://github.com/CharanKoyalkar484/Myweb.git'
             }
         }
+       }
+      }
